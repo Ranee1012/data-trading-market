@@ -1,21 +1,21 @@
 {
-  "siteTitle": "Ocean Market",
-  "siteTagline": "A marketplace to find, publish and trade datasets in the Ocean Network.",
+  "siteTitle": "贵阳大数据交易所（气象区）",
+  "siteTagline": "合规、安全、高效的数据流通交易解决方案，充分释放气象数据的经济价值和应用潜力",
   "siteUrl": "https://market.oceanprotocol.com",
-  "siteImage": "/share.png",
+  "siteImage": "/bg.png",
   "copyright": "All Rights Reserved. Powered by ",
   "menu": [
     {
-      "name": "Publish",
+      "name": "发布数据",
       "link": "/publish/1"
     },
     {
-      "name": "Profile",
+      "name": "我的数据",
       "link": "/profile"
     }
   ],
-  "announcement": "[Lock your OCEAN](https://df.oceandao.org/) to get veOCEAN, earn rewards and curate data.",
+  "announcement": "该软件页面仅用于数据场景应用创新大赛方案展示，敬请知悉。[查看团队介绍](https://bizfaculty.nus.edu.sg/faculty-details/?profId=514)",
   "warning": {
-    "ctd": "Please note that Compute-to-Data is still in alpha phase."
+    "ctd": "算法售卖功能测试中，现仅用于数据场景应用创新大赛方案展示，敬请知悉"
   }
 }

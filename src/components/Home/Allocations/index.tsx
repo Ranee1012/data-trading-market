@@ -86,7 +86,7 @@ export default function Allocations(): ReactElement {
 
   return (
     <section className={styles.section}>
-      <h3>Your Allocated Assets</h3>
+      <h3>您的资产</h3>
       <AssetListTable data={data} isLoading={loading} />
     </section>
   )

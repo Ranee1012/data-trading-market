@@ -87,9 +87,7 @@ export default function Bookmarks(): ReactElement {
       data={pinned}
       isLoading={isLoading}
       emptyMessage={
-        chainIds.length === 0
-          ? 'No network selected'
-          : 'Your bookmarks will appear here.'
+        chainIds.length === 0 ? '未选择网络' : '您的收藏将会在此显示'
       }
       noTableHead
     />
