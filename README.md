@@ -72,7 +72,7 @@ git clone git@github.com:oceanprotocol/barge.git
 cd barge
 
 # startup with local Ganache node
-./start_ocean.sh
+./start_ocean.sh or chmod +x start_ocean.sh
 ```
 
 Barge will deploy contracts to the local Ganache node which will take some time. At the end the compiled artifacts need to be copied over to this project into `node_modules/@oceanprotocol/contracts/artifacts`. This script will do that for you:
