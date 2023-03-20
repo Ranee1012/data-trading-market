@@ -1,20 +1,20 @@
 {
   "1": {
-    "name": "Create Tokens & Pricing",
-    "description": "The Data NFT representing your asset, the Datatokens defining access to it, and the pricing schema are all created in a single transaction.",
-    "status": "pending",
+    "name": "铸造所有权证明和许可证",
+    "description": "该交易包含链上铸造代表所有权的数据NFT，代表使用权的许可证，以及对应的定价范式",
+    "status": "处理中",
     "txCount": 1
   },
   "2": {
-    "name": "Construct & Encrypt DDO",
-    "description": "Entered metadata is transformed into a structured document (DDO) where the file URLs, and the whole DDO itself are encrypted.",
-    "status": "pending",
+    "name": "构建并加密含有数据资产的文件",
+    "description": "数据注册资料以及对应URL将被转换为结构化文件整体加密",
+    "status": "处理中",
     "txCount": 0
   },
   "3": {
-    "name": "Publish DDO",
-    "description": "The encrypted DDO is stored on-chain as part of the Data NFT. Indexers like Aquarius can decrypt the DDO for displaying purposes, but the file URLs can only be decrypted by exchanging the respective datatokens for this asset.",
-    "status": "pending",
+    "name": "发布数据资产",
+    "description": "结构化文件将作为数据NFT的一部分以加密形式存储上链，需要许可证才能访问",
+    "status": "处理中",
     "txCount": 1
   }
 }

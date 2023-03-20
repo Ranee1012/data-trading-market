@@ -41,17 +41,12 @@ export default function FilesInput(props: InputProps): ReactElement {
       setIsLoading(true)
 
       if (isUrl(url) && isGoogleUrl(url)) {
-        throw Error(
-          'Google Drive is not a supported hosting service. Please use an alternative.'
-        )
+        throw Error('暂不支持 Google Drive，请尝试其它')
       }
 
       // Check if provider is a valid provider
       const isValid = await checkValidProvider(providerUrl)
-      if (!isValid)
-        throw Error(
-          '✗ Provider cannot be reached, please check status.oceanprotocol.com and try again later.'
-        )
+      if (!isValid) throw Error('✗ 无法访问提供商，请稍后再试')
 
       const checkedFile = await getFileInfo(
         url,
@@ -65,13 +60,10 @@ export default function FilesInput(props: InputProps): ReactElement {
       )
 
       // error if something's not right from response
-      if (!checkedFile)
-        throw Error('Could not fetch file info. Is your network down?')
+      if (!checkedFile) throw Error('无法获取文件，请检查您的网络')
 
       if (checkedFile[0].valid === false)
-        throw Error(
-          `✗ No valid file detected. Check your ${props.label} and details, and try again.`
-        )
+        throw Error(`✗ 文件无效. 检查您的 ${props.label} 并重试`)
 
       // if all good, add file to formik state
       helpers.setValue([
@@ -137,13 +129,11 @@ export default function FilesInput(props: InputProps): ReactElement {
             />
           ) : (
             <UrlInput
-              submitText="Validate"
+              submitText="验证"
               {...props}
               name={`${field.name}[0].url`}
               isLoading={isLoading}
-              hideButton={
-                storageType === 'graphql' || storageType === 'smartcontract'
-              }
+              hideButton={storageType === 'smartcontract'}
               checkUrl={true}
               handleButtonClick={handleValidation}
               storageType={storageType}
@@ -182,7 +172,7 @@ export default function FilesInput(props: InputProps): ReactElement {
                 {isLoading ? (
                   <Loader />
                 ) : (
-                  `submit ${
+                  `提交 ${
                     storageType === 'graphql'
                       ? 'query'
                       : storageType === 'smartcontract'

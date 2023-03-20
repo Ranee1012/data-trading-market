@@ -17,11 +17,11 @@ export default function TransactionCount({
       path={`/tx/${txHash}`}
       className={styles.txHash}
     >
-      View Transaction
+      查看交易
     </ExplorerLink>
   ) : (
     <span className={styles.txHash}>
-      {txCount} Transaction{txCount > 1 ? 's' : ''}
+      {txCount} 笔交易{txCount > 1 ? 's' : ''}
     </span>
   )
 }

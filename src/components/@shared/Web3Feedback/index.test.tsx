@@ -37,7 +37,7 @@ describe('@shared/Web3Feedback', () => {
 
   it('renders no account', async () => {
     render(<Web3Feedback networkId={1} accountId={undefined} />)
-    expect(await screen.findByText('No account connected')).toBeInTheDocument()
+    expect(await screen.findByText('未连接账户')).toBeInTheDocument()
   })
 
   it('do nothing if nothing to show', async () => {

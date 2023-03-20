@@ -93,7 +93,7 @@ export default function PriceOutput({
 
   return (
     <div className={styles.priceComponent}>
-      You will pay{' '}
+      您将支付{' '}
       {totalPrices.map((item, index) => (
         <div key={item.symbol}>
           <PriceUnit

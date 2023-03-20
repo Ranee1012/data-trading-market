@@ -41,7 +41,7 @@ export default function AssetStats() {
       {!asset?.stats || asset?.stats?.orders < 0 ? (
         <span className={styles.stat}>N/A</span>
       ) : asset?.stats?.orders === 0 ? (
-        <span className={styles.stat}>No sales yet</span>
+        <span className={styles.stat}>无历史记录</span>
       ) : (
         <span className={styles.stat}>
           <span className={styles.number}>{asset.stats.orders}</span> sale

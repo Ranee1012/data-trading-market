@@ -20,10 +20,10 @@ export default function FormActions({
   return (
     <footer className={styles.actions}>
       <Button style="primary" disabled={isSubmitDisabled} onClick={handleClick}>
-        Submit
+        提交
       </Button>
       <Link href={`/asset/${asset?.id}`} key={asset?.id}>
-        Cancel
+        取消
       </Link>
     </footer>
   )

@@ -10,23 +10,17 @@ import { testLinks } from '../../@utils/yup'
 
 const validationMetadata = {
   type: Yup.string()
-    .matches(/dataset|algorithm/g, { excludeEmptyString: true })
-    .required('Required'),
+    .matches(/数据集|模型/g, { excludeEmptyString: true })
+    .required('必填'),
   name: Yup.string()
-    .min(4, (param) => `Title must be at least ${param.min} characters`)
-    .required('Required'),
+    .min(4, (param) => `名称至少有 ${param.min} 位字符`)
+    .required('必填'),
   description: Yup.string()
-    .min(10, (param) => `Description must be at least ${param.min} characters`)
-    .max(
-      5000,
-      (param) => `Description must have maximum ${param.max} characters`
-    )
-    .required('Required'),
-  author: Yup.string().required('Required'),
-  tags: Yup.array<string[]>().nullable(),
-  termsAndConditions: Yup.boolean()
-    .required('Required')
-    .isTrue('Please agree to the Terms and Conditions.')
+    .min(10, (param) => `描述至少有 ${param.min} 位字符`)
+    .max(5000, (param) => `描述最多有 ${param.max} 位字符`)
+    .required('必填'),
+  author: Yup.string().required('必填'),
+  tags: Yup.array<string[]>().nullable()
 }
 
 const validationService = {
@@ -34,11 +28,11 @@ const validationService = {
     .of(
       Yup.object().shape({
         url: testLinks(),
-        valid: Yup.boolean().isTrue().required('File must be valid.')
+        valid: Yup.boolean().isTrue().required('文件无效')
       })
     )
-    .min(1, `At least one file is required.`)
-    .required('Enter a valid URL and click ADD FILE.'),
+    .min(1, `至少需要一个文件`)
+    .required('输入一个有效的URL并点击添加'),
   links: Yup.array<FileInfo[]>()
     .of(
       Yup.object().shape({
@@ -52,13 +46,13 @@ const validationService = {
     name: Yup.string(),
     symbol: Yup.string()
   }),
-  timeout: Yup.string().required('Required'),
+  timeout: Yup.string().required('必填'),
   access: Yup.string()
     .matches(/compute|access/g)
-    .required('Required'),
+    .required('必填'),
   providerUrl: Yup.object().shape({
-    url: Yup.string().url('Must be a valid URL.').required('Required'),
-    valid: Yup.boolean().isTrue().required('Valid Provider is required.'),
+    url: Yup.string().url('URL无效').required('必填'),
+    valid: Yup.boolean().isTrue().required('必须填写有效提供商'),
     custom: Yup.boolean()
   })
 }
@@ -66,21 +60,16 @@ const validationService = {
 const validationPricing = {
   type: Yup.string()
     .matches(/fixed|free/g, { excludeEmptyString: true })
-    .required('Required'),
+    .required('必填'),
   // https://github.com/jquense/yup#mixedwhenkeys-string--arraystring-builder-object--value-schema-schema-schema
 
   price: Yup.number()
-    .min(1, (param: { min: number }) => `Must be more or equal to ${param.min}`)
-    .max(
-      1000000,
-      (param: { max: number }) => `Must be less than or equal to ${param.max}`
+    .min(0.1, (param: { min: number }) => `必须大于等于 ${param.min}`)
+    .max(1000000, (param: { max: number }) => `必须小于等于 ${param.max}`)
+    .test('maxDigitsAfterDecimal', `最多不超过 ${MAX_DECIMALS} 位数`, (param) =>
+      getMaxDecimalsValidation(MAX_DECIMALS).test(param?.toString())
     )
-    .test(
-      'maxDigitsAfterDecimal',
-      `Must have maximum ${MAX_DECIMALS} decimal digits`,
-      (param) => getMaxDecimalsValidation(MAX_DECIMALS).test(param?.toString())
-    )
-    .required('Required')
+    .required('必填')
 }
 
 // TODO: make Yup.SchemaOf<FormPublishData> work, requires conditional validation
@@ -89,8 +78,8 @@ const validationPricing = {
 export const validationSchema: Yup.SchemaOf<any> = Yup.object().shape({
   user: Yup.object().shape({
     stepCurrent: Yup.number(),
-    chainId: Yup.number().required('Required'),
-    accountId: Yup.string().required('Required')
+    chainId: Yup.number().required('必填'),
+    accountId: Yup.string().required('必填')
   }),
   metadata: Yup.object().shape(validationMetadata),
   services: Yup.array().of(Yup.object().shape(validationService)),

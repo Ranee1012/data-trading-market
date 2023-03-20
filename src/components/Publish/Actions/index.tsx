@@ -69,10 +69,10 @@ export default function Actions({
     <footer className={styles.actions}>
       {did ? (
         <SuccessConfetti
-          success="Successfully published!"
+          success="成功发布!"
           action={
             <Button style="primary" to={`/asset/${did}`}>
-              View Asset
+              查看资产
             </Button>
           }
         />
@@ -80,7 +80,7 @@ export default function Actions({
         <>
           {values.user.stepCurrent > 1 && (
             <Button onClick={handlePrevious} disabled={isSubmitting}>
-              Back
+              返回
             </Button>
           )}
 
@@ -90,11 +90,11 @@ export default function Actions({
               onClick={handleNext}
               disabled={isContinueDisabled}
             >
-              Continue
+              继续
             </Button>
           ) : !accountId ? (
             <Button type="submit" style="primary" onClick={handleActivation}>
-              Connect Wallet
+              连接钱包
             </Button>
           ) : !isSupportedOceanNetwork ? (
             <Tooltip content={<AvailableNetworks />}>
@@ -104,7 +104,7 @@ export default function Actions({
                 disabled
                 className={styles.infoButton}
               >
-                Unsupported Network <Info className={styles.infoIcon} />
+                不支持的网络 <Info className={styles.infoIcon} />
               </Button>
             </Tooltip>
           ) : (
@@ -116,9 +116,9 @@ export default function Actions({
               {isSubmitting ? (
                 <Loader white />
               ) : hasSubmitError ? (
-                'Retry'
+                '重试'
               ) : (
-                'Submit'
+                '提交'
               )}
             </Button>
           )}

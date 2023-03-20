@@ -14,7 +14,7 @@ const SampleButton = ({ url }: { url: string }) => (
     style="text"
     size="small"
   >
-    Download Sample
+    下载样本
   </Button>
 )
 
@@ -24,7 +24,7 @@ export default function MetaSecondary({ ddo }: { ddo: Asset }): ReactElement {
       {ddo?.metadata.links?.length > 0 && (
         <div className={styles.samples}>
           <MetaItem
-            title="Sample Data"
+            title="样本数据"
             content={<SampleButton url={ddo?.metadata.links[0]} />}
           />
         </div>

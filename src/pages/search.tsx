@@ -24,13 +24,13 @@ export default function PageSearch(): ReactElement {
         totalResults !== undefined
           ? searchValue && searchValue !== ' '
             ? totalResults === 0
-              ? 'No results'
+              ? '无结果'
               : totalResults +
                 (totalResults > 1 ? ' results' : ' result') +
                 ' for ' +
                 searchValue
-            : totalResults + ' results'
-          : 'Searching...'
+            : totalResults + ' 结果'
+          : '搜索中...'
       }`
 
   return (

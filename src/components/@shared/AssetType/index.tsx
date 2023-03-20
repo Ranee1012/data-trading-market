@@ -24,7 +24,7 @@ export default function AssetType({
       )}
 
       <div className={styles.typeLabel}>
-        {type === 'dataset' ? 'dataset' : 'algorithm'}
+        {type === '数据集' ? '数据集' : '模型'}
       </div>
     </div>
   )

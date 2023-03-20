@@ -53,14 +53,14 @@ function getConsumeHelpText(
     isConsumable === false
       ? consumableFeedback
       : hasPreviousOrder && web3 && isSupportedOceanNetwork
-      ? `You bought this ${assetType} already allowing you to use it without paying again.`
+      ? `您已购买 ${assetType} ，可直接开始使用`
       : hasDatatoken
-      ? `You own ${dtBalance} ${dtSymbol} allowing you to use this dataset by spending 1 ${dtSymbol}, but without paying ${btSymbol} again.`
+      ? `您拥有 ${dtBalance} ${dtSymbol}，您可以支付1 ${dtSymbol} 获取数据, 无需再次支付 ${btSymbol}`
       : isBalanceSufficient === false
-      ? `You do not have enough ${btSymbol} in your wallet to purchase this asset.`
+      ? `您钱包中没有足够的 ${btSymbol} 来购买当前资产`
       : priceType === 'free'
-      ? `This ${assetType} is free to use.`
-      : `To use this ${assetType}, you will buy 1 ${dtSymbol} and immediately send it back to the publisher.`
+      ? `该 ${assetType} 免费使用`
+      : `要使用 ${assetType}, 您将支付 ${dtSymbol} 给发布者`
   return text
 }
 
@@ -83,16 +83,16 @@ function getAlgoHelpText(
     isAlgorithmConsumable === false
       ? ''
       : hasPreviousOrderSelectedComputeAsset && web3 && isSupportedOceanNetwork
-      ? `You already bought the selected ${selectedComputeAssetType}, allowing you to use it without paying again.`
+      ? `您已购买 ${selectedComputeAssetType}, 可直接开始使用`
       : hasDatatokenSelectedComputeAsset
-      ? `You own ${dtBalanceSelectedComputeAsset} ${dtSymbolSelectedComputeAsset} allowing you to use the selected ${selectedComputeAssetType} by spending 1 ${dtSymbolSelectedComputeAsset}, but without paying OCEAN again.`
+      ? `您拥有 ${dtBalanceSelectedComputeAsset} ${dtSymbolSelectedComputeAsset}，您可以支付 1 ${dtSymbolSelectedComputeAsset} 来使用 ${selectedComputeAssetType} , 无需再支付 OCEAN`
       : web3 && !isSupportedOceanNetwork
-      ? `Connect to the correct network to interact with this asset.`
+      ? `请连接资产所在的网络`
       : isBalanceSufficient === false
       ? ''
       : algorithmPriceType === 'free'
-      ? `Additionally, the selected ${selectedComputeAssetType} is free to use.`
-      : `Additionally, you will buy 1 ${dtSymbolSelectedComputeAsset} for the ${selectedComputeAssetType} and send it back to the publisher.`
+      ? `该 ${selectedComputeAssetType} 免费使用`
+      : `您将购买 1 ${dtSymbolSelectedComputeAsset} 以获取 ${selectedComputeAssetType}`
   return text
 }
 
@@ -148,8 +148,8 @@ function getComputeAssetHelpText(
   )
 
   const providerFeeHelpText = hasProviderFee
-    ? 'In order to start the job you also need to pay the fees for renting the c2d resources.'
-    : 'The C2D resources required to start the job are available, no payment is required for them.'
+    ? '。您需要租赁计算资源以开始运行模型'
+    : '。计算资源可用，无需付费'
   let computeHelpText = `${computeAssetHelpText} ${computeAlgoHelpText} ${providerFeeHelpText}`
 
   computeHelpText = computeHelpText.replace(/^\s+/, '')
@@ -187,20 +187,20 @@ export default function ButtonBuy({
 }: ButtonBuyProps): ReactElement {
   const { web3 } = useWeb3()
   const buttonText = retry
-    ? 'Retry'
+    ? '重试'
     : action === 'download'
     ? hasPreviousOrder
-      ? 'Download'
+      ? '下载'
       : priceType === 'free'
-      ? 'Get'
-      : `Buy ${assetTimeout === 'Forever' ? '' : ` for ${assetTimeout}`}`
+      ? '获取'
+      : `购买 ${assetTimeout === '永久' ? '' : ` 有效期 ${assetTimeout}`}`
     : hasPreviousOrder &&
       hasPreviousOrderSelectedComputeAsset &&
       !hasProviderFee
-    ? 'Start Compute Job'
+    ? '开始计算任务'
     : priceType === 'free' && algorithmPriceType === 'free'
-    ? 'Order Compute Job'
-    : `Buy Compute Job`
+    ? '下单计算任务'
+    : `购买计算任务`
 
   function message(): string {
     let message = ''
@@ -244,8 +244,7 @@ export default function ButtonBuy({
       )
     }
     if (priceType === 'free' || algorithmPriceType === 'free') {
-      message +=
-        ' Please note that network gas fees still apply, even when using free assets.'
+      message += ' 请注意您仍需支付网络费'
     }
     return message
   }

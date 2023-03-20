@@ -1,9 +1,9 @@
 {
-  "title": "404 - Oops, that did not work",
-  "description": "Pardon us, the page you requested is not here.",
+  "title": "404 错误",
+  "description": "当前请求的网页不存在",
   "actions": [
     {
-      "title": "Back to Homepage",
+      "title": "返回主页",
       "url": "/"
     }
   ]

@@ -35,26 +35,26 @@ export default function MetaFull({ ddo }: { ddo: Asset }): ReactElement {
   return ddo ? (
     <div className={styles.metaFull}>
       {!isInPurgatory && (
-        <MetaItem title="Data Author" content={ddo?.metadata?.author} />
+        <MetaItem title="生产方名称" content={ddo?.metadata?.author} />
       )}
       <MetaItem
-        title="Owner"
+        title="生产方地址"
         content={<Publisher account={ddo?.nft?.owner} />}
       />
       {assetState !== 'Active' && (
-        <MetaItem title="Asset State" content={assetState} />
+        <MetaItem title="数据资产状态" content={assetState} />
       )}
       {paymentCollector && paymentCollector !== ddo?.nft?.owner && (
         <MetaItem
-          title="Revenue Sent To"
+          title="收益接收地址"
           content={<Publisher account={paymentCollector} />}
         />
       )}
 
       {ddo?.metadata?.type === 'algorithm' && ddo?.metadata?.algorithm && (
-        <MetaItem title="Docker Image" content={<DockerImage />} />
+        <MetaItem title="Docker镜像" content={<DockerImage />} />
       )}
-      <MetaItem title="DID" content={<code>{ddo?.id}</code>} />
+      <MetaItem title="资产标识符（DID)" content={<code>{ddo?.id}</code>} />
     </div>
   ) : null
 }

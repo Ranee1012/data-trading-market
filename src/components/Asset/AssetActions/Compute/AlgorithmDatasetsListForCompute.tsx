@@ -39,7 +39,7 @@ export default function AlgorithmDatasetsListForCompute({
 
   return (
     <div className={styles.datasetsContainer}>
-      <h3 className={styles.text}>Datasets algorithm is allowed to run on</h3>
+      <h3 className={styles.text}>该模型支持运行在以下数据集上</h3>
       <AssetComputeList assets={datasetsForCompute} />
     </div>
   )

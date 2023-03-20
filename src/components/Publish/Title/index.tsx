@@ -18,7 +18,7 @@ export default function Title({
       {content.title}{' '}
       {networkId && (
         <>
-          into
+          在
           <NetworkName
             networkId={networkId}
             className={

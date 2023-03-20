@@ -24,7 +24,7 @@ export default function PriceUnit({
   return (
     <div className={`${styles.price} ${styles[size]} ${className}`}>
       {price === 0 ? (
-        <div>Free</div>
+        <div>免费</div>
       ) : !price || Number.isNaN(price) ? (
         <div>-</div>
       ) : (

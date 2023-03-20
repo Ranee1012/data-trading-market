@@ -84,6 +84,6 @@ export default function ComputeJobs({
       />
     </>
   ) : (
-    <div>Please connect your Web3 wallet.</div>
+    <div>请连接您的钱包</div>
   )
 }

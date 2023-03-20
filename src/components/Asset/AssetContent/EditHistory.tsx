@@ -80,7 +80,7 @@ export default function EditHistory({
 
   return (
     <>
-      <h3 className={styles.title}>Metadata History</h3>
+      <h3 className={styles.title}>数据注册记录</h3>
       <ul className={styles.history}>
         {receipts?.map((receipt) => (
           <li key={receipt.id} className={styles.item}>

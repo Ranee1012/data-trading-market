@@ -356,10 +356,7 @@ export default function Compute({
         selectedAlgorithmAsset
       )
       LoggerInstance.log('[compute] Is dataset orderable?', allowed)
-      if (!allowed)
-        throw new Error(
-          'Dataset is not orderable in combination with selected algorithm.'
-        )
+      if (!allowed) throw new Error('数据集不支持当前算法')
 
       await initPriceAndFees()
 
@@ -380,7 +377,7 @@ export default function Compute({
         initializedProviderResponse.algorithm,
         computeEnv.consumerAddress
       )
-      if (!algorithmOrderTx) throw new Error('Failed to order algorithm.')
+      if (!algorithmOrderTx) throw new Error('模型下单失败')
 
       setComputeStatusText(
         getComputeFeedback(
@@ -399,7 +396,7 @@ export default function Compute({
         initializedProviderResponse.datasets[0],
         computeEnv.consumerAddress
       )
-      if (!datasetOrderTx) throw new Error('Failed to order dataset.')
+      if (!datasetOrderTx) throw new Error('数据集下单失败')
 
       LoggerInstance.log('[compute] Starting compute job.')
       const computeAsset: ComputeAsset = {
@@ -424,7 +421,7 @@ export default function Compute({
         null,
         output
       )
-      if (!response) throw new Error('Error starting compute job.')
+      if (!response) throw new Error('计算时出现错误')
 
       LoggerInstance.log('[compute] Starting compute job response: ', response)
       setIsOrdered(true)
@@ -448,10 +445,7 @@ export default function Compute({
       >
         <FileIcon file={file} isLoading={fileIsLoading} small />
         {isUnsupportedPricing ? (
-          <Alert
-            text={`No pricing schema available for this asset.`}
-            state="info"
-          />
+          <Alert text={`当前资产无可适用的定价范式`} state="info" />
         ) : (
           <Price
             price={asset.stats?.price}
@@ -467,7 +461,7 @@ export default function Compute({
           {asset.services[0].type === 'compute' && (
             <Alert
               text={
-                "This algorithm has been set to private by the publisher and can't be downloaded. You can run it against any allowed datasets though!"
+                '该模型为私密模型不支持下载，您可以使用该模型计算您的数据集'
               }
               state="info"
             />
@@ -533,12 +527,12 @@ export default function Compute({
 
       <footer className={styles.feedback}>
         {isOrdered && (
-          <SuccessConfetti success="Your job started successfully! Watch the progress below or on your profile." />
+          <SuccessConfetti success="计算任务已开始执行，请在 我的资产 页面查看进度" />
         )}
       </footer>
       {accountId && asset?.accessDetails?.datatoken && (
         <ComputeHistory
-          title="Your Compute Jobs"
+          title="您的计算任务"
           refetchJobs={() => setRefetchJobs(!refetchJobs)}
         >
           <ComputeJobs

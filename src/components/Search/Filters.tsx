@@ -11,16 +11,16 @@ import styles from './Filters.module.css'
 
 const cx = classNames.bind(styles)
 
-const clearFilters = [{ display: 'Clear', value: '' }]
+const clearFilters = [{ display: '清除', value: '' }]
 
 const serviceFilterItems = [
-  { display: 'datasets', value: FilterByTypeOptions.Data },
-  { display: 'algorithms', value: FilterByTypeOptions.Algorithm }
+  { display: '模型参数', value: FilterByTypeOptions.Algorithm },
+  { display: '合成数据', value: FilterByTypeOptions.Data }
 ]
 
 const accessFilterItems = [
-  { display: 'download ', value: FilterByAccessOptions.Download },
-  { display: 'compute ', value: FilterByAccessOptions.Compute }
+  { display: '原始数据 ', value: FilterByAccessOptions.Download },
+  { display: '模型结果 ', value: FilterByAccessOptions.Compute }
 ]
 
 export default function FilterPrice({

@@ -22,7 +22,7 @@ export default function MetaAsset({
   return (
     <div className={styles.wrapper}>
       <span className={styles.owner}>
-        Owned by <Publisher account={asset?.nft?.owner} />
+        所有权持有者： <Publisher account={asset?.nft?.owner} />
       </span>
       <span>
         <ExplorerLink
@@ -34,7 +34,7 @@ export default function MetaAsset({
               : `token/${asset?.services?.[0]?.datatokenAddress}`
           }
         >
-          {`Accessed with ${dataTokenSymbol}`}
+          {`使用权许可证代号： ${dataTokenSymbol}`}
         </ExplorerLink>
         {web3ProviderInfo?.name === 'MetaMask' && isAssetNetwork && (
           <span className={styles.addWrap}>

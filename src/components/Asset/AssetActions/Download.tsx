@@ -200,7 +200,7 @@ export default function Download({
           <Alert
             className={styles.fieldWarning}
             state="info"
-            text={`The publisher temporarily disabled ordering for this asset`}
+            text={`所有者暂时停止了资产销售`}
           />
         ) : (
           <>
@@ -208,7 +208,7 @@ export default function Download({
               <Alert
                 className={styles.fieldWarning}
                 state="info"
-                text={`No pricing schema available for this asset.`}
+                text={`该数据资产无可适用的定价范式`}
               />
             ) : (
               <>

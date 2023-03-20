@@ -6,7 +6,7 @@ import { useField } from 'formik'
 jest.mock('formik')
 
 const props: URLInputProps = {
-  submitText: 'Submit',
+  submitText: '提交',
   handleButtonClick: jest.fn(),
   isLoading: false,
   name: 'Hello Name'

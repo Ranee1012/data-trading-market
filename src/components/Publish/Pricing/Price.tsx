@@ -51,7 +51,6 @@ export default function Price({
             </div>
             <div className={styles.datatoken}>
               <h4>
-                = <strong>1</strong> {dataTokenOptions.symbol}{' '}
                 <Conversion
                   price={field.value}
                   symbol={values.pricing?.baseToken?.symbol}

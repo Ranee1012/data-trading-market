@@ -1,11 +1,11 @@
 {
   "form": {
-    "success": "🎉 Your Compute job started. 🎉",
-    "error": "Compute job could not be started.",
+    "success": "🎉 您的计算任务成功开始 🎉",
+    "error": "计算任务无法开始",
     "data": [
       {
         "name": "algorithm",
-        "label": "Select an algorithm to start a compute job",
+        "label": "选择一个模型以开始你的计算任务",
         "type": "assetSelection",
         "value": false,
         "options": [],

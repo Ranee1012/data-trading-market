@@ -17,8 +17,8 @@ export enum SortTermOptions {
 // and gets imported in components.
 
 export enum FilterByTypeOptions {
-  Data = 'dataset',
-  Algorithm = 'algorithm'
+  Data = '数据集',
+  Algorithm = '模型'
 }
 
 export enum FilterByAccessOptions {

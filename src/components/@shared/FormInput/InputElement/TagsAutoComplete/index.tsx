@@ -75,9 +75,7 @@ export default function TagsAutoComplete({
       hideSelectedOptions
       isMulti
       isClearable={false}
-      noOptionsMessage={() =>
-        'Start typing to get suggestions based on tags from all published assets.'
-      }
+      noOptionsMessage={() => '请输入关键词'}
       onChange={(value: AutoCompleteOption[]) => handleChange(value)}
       onInputChange={(value) => handleOptionsFilter(tagsList, value)}
       openMenuOnClick

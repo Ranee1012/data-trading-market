@@ -78,7 +78,7 @@ export default function CustomProvider(props: InputProps): ReactElement {
   ) : (
     <>
       <UrlInput
-        submitText="Validate"
+        submitText="验证"
         {...props}
         name={`${field.name}.url`}
         isLoading={isLoading}

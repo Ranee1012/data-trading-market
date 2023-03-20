@@ -7,7 +7,7 @@ export default function Empty({ message }: { message?: string }): ReactElement {
     <div
       className={styles.empty}
       dangerouslySetInnerHTML={{
-        __html: markdownToHtml(message) || 'No results found'
+        __html: markdownToHtml(message) || '无结果'
       }}
     />
   )

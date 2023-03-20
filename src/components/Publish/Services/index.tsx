@@ -26,7 +26,7 @@ export default function ServicesFields(): ReactElement {
     {
       name: 'download',
       value: accessTypeOptionsTitles[0].toLowerCase(),
-      title: 'Download',
+      title: '下载',
       icon: <IconDownload />,
       // BoxSelection component is not a Formik component
       // so we need to handle checked state manually.
@@ -36,7 +36,7 @@ export default function ServicesFields(): ReactElement {
     {
       name: accessTypeOptionsTitles[1].toLowerCase(),
       value: accessTypeOptionsTitles[1].toLowerCase(),
-      title: accessTypeOptionsTitles[1],
+      title: '计算',
       icon: <IconCompute />,
       checked:
         values.services[0].access === accessTypeOptionsTitles[1].toLowerCase()
@@ -65,7 +65,7 @@ export default function ServicesFields(): ReactElement {
         component={Input}
         name="services[0].dataTokenOptions"
       />
-      {values.metadata.type === 'algorithm' ? (
+      {values.metadata.type === '模型' ? (
         <Field
           {...getFieldContent('algorithmPrivacy', content.services.fields)}
           component={Input}

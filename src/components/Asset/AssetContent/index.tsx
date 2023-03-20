@@ -75,7 +75,7 @@ export default function AssetContent({
           {isOwner && isAssetNetwork && (
             <div className={styles.ownerActions}>
               <Button style="text" size="small" to={`/asset/${asset?.id}/edit`}>
-                Edit Asset
+                编辑资产
               </Button>
             </div>
           )}

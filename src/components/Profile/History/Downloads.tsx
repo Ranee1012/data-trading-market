@@ -42,6 +42,6 @@ export default function ComputeDownloads({
       emptyMessage={chainIds.length === 0 ? 'No network selected' : null}
     />
   ) : (
-    <div>Please connect your Web3 wallet.</div>
+    <div>请连接您的钱包</div>
   )
 }

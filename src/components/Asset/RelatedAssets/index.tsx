@@ -79,7 +79,7 @@ export default function RelatedAssets(): ReactElement {
 
   return (
     <section className={styles.section}>
-      <h3>Related Assets</h3>
+      <h3>相关资产</h3>
       <AssetList
         assets={relatedAssets}
         showPagination={false}

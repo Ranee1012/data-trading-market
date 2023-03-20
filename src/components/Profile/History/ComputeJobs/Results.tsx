@@ -75,7 +75,7 @@ export default function Results({
 
   return (
     <div className={styles.results}>
-      <h4 className={styles.title}>Results</h4>
+      <h4 className={styles.title}>结果</h4>
       {isFinished ? (
         <ul>
           {job.results &&
@@ -93,12 +93,12 @@ export default function Results({
                   </Button>
                 </ListItem>
               ) : (
-                <ListItem key={i}>No results found.</ListItem>
+                <ListItem key={i}>无结果</ListItem>
               )
             )}
         </ul>
       ) : (
-        <p> Waiting for results...</p>
+        <p> 等待结果...</p>
       )}
       <FormHelp className={styles.help}>{content.compute.storage}</FormHelp>
     </div>

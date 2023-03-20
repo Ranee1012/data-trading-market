@@ -96,7 +96,7 @@ export default function InputHeaders(props: InputProps): ReactElement {
           }}
           disabled={disabledButton}
         >
-          add
+          添加
         </Button>
       </div>
 
@@ -125,7 +125,7 @@ export default function InputHeaders(props: InputProps): ReactElement {
                 }}
                 disabled={false}
               >
-                remove
+                移除
               </Button>
             </div>
           )

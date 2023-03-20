@@ -76,7 +76,7 @@ async function getAssetMetadata(
     filters: [
       getFilterTerm('services.datatokenAddress', queryDtList),
       getFilterTerm('services.type', 'compute'),
-      getFilterTerm('metadata.type', 'dataset')
+      getFilterTerm('metadata.type', '数据集')
     ],
     ignorePurgatory: true
   } as BaseQueryParams
@@ -160,7 +160,7 @@ export function getQueryString(
   const baseParams = {
     chainIds: [chainId],
     sort: { sortBy: SortTermOptions.Created },
-    filters: [getFilterTerm('metadata.type', 'algorithm')]
+    filters: [getFilterTerm('metadata.type', '模型')]
   } as BaseQueryParams
   algorithmDidList?.length > 0 &&
     baseParams.filters.push(getFilterTerm('_id', algorithmDidList))

@@ -16,7 +16,7 @@ export interface AssetSelectionAsset {
 }
 
 function Empty() {
-  return <div className={styles.empty}>No assets found.</div>
+  return <div className={styles.empty}>未找到相关资产</div>
 }
 
 export default function AssetSelection({

@@ -53,7 +53,7 @@ export default function Stats({
   return (
     <div className={styles.stats}>
       <NumberUnit
-        label="Total Sales"
+        label="销售额"
         value={
           totalSales > 0 ? (
             <Conversion
@@ -66,11 +66,8 @@ export default function Stats({
           )
         }
       />
-      <NumberUnit
-        label={`Sale${sales === 1 ? '' : 's'}`}
-        value={sales < 0 ? 0 : sales}
-      />
-      <NumberUnit label="Published" value={assetsTotal} />
+      <NumberUnit label="销售量" value={sales < 0 ? 0 : sales} />
+      <NumberUnit label="发布量" value={assetsTotal} />
       <NumberUnit
         label={
           lockedOcean === 0 && accountId === web3.accountId ? (
@@ -78,9 +75,7 @@ export default function Stats({
               className={styles.link}
               style="text"
               href="https://df.oceandao.org"
-            >
-              Lock OCEAN
-            </Button>
+            ></Button>
           ) : (
             <>
               <PriceUnit price={lockedOcean} symbol="OCEAN" /> locked

@@ -48,7 +48,7 @@ export default function AssetList({
             />
           ))
         ) : (
-          <div className={styles.empty}>No results found</div>
+          <div className={styles.empty}>暂无记录</div>
         )}
       </div>
 

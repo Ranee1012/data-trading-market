@@ -32,22 +32,22 @@ export default function Web3Feedback({
     if (accountId && isAssetNetwork && isGraphSynced) return
     if (!accountId) {
       setState('error')
-      setTitle('No account connected')
-      setMessage('Please connect your Web3 wallet.')
+      setTitle('未连接账户')
+      setMessage('请连接您的钱包')
     } else if (isAssetNetwork === false) {
       setState('error')
-      setTitle('Not connected to asset network')
-      setMessage('Please connect your Web3 wallet.')
+      setTitle('未连接数据资产所在的网络')
+      setMessage('请连接您的钱包')
     } else if (isGraphSynced === false) {
       setState('warning')
-      setTitle('Data out of sync')
+      setTitle('数据未同步')
       setMessage(
-        `The data for this network has only synced to Ethereum block ${blockGraph} (out of ${blockHead}). Transactions may fail! Please check back soon.`
+        `该数据仅同步到了以太坊区块 ${blockGraph} (${blockHead})。交易可能失败，请稍后再试。`
       )
     } else {
       setState('warning')
-      setTitle('Something went wrong.')
-      setMessage('Something went wrong.')
+      setTitle('数据出错')
+      setMessage('数据出错')
     }
   }, [accountId, isGraphSynced, isAssetNetwork])
 

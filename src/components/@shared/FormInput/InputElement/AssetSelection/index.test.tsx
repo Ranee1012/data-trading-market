@@ -29,21 +29,19 @@ describe('@shared/FormInput/InputElement/AssetSelection', () => {
 
   it('renders without crashing', () => {
     render(<AssetSelection assets={assets} />)
-    const searchInput = screen.getByPlaceholderText(
-      'Search by title, datatoken, or DID...'
-    )
+    const searchInput = screen.getByPlaceholderText('搜索关键词')
     fireEvent.change(searchInput, { target: { value: 'Assets' } })
     fireEvent.change(searchInput, { target: { value: '' } })
   })
 
   it('renders empty assetSelection', () => {
     render(<AssetSelection assets={[]} />)
-    expect(screen.getByText('No assets found.')).toBeInTheDocument()
+    expect(screen.getByText('未找到相关资产')).toBeInTheDocument()
   })
 
   it('renders disabled assetSelection', () => {
     render(<AssetSelection assets={[]} disabled />)
-    expect(screen.getByText('No assets found.')).toBeInTheDocument()
+    expect(screen.getByText('未找到相关资产')).toBeInTheDocument()
   })
 
   it('renders assetSelectionMultiple', () => {

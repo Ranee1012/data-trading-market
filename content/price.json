@@ -1,23 +1,21 @@
 {
   "create": {
     "fixed": {
-      "title": "Fixed",
-      "info": "Set your price for accessing this dataset. The datatoken for this dataset will be worth the entered amount of the selected base token.",
+      "title": "FIXED",
+      "info": "设定您数据资产的使用许可证价格",
       "tooltips": {
-        "communityFee": "Goes to Ocean DAO for teams to improve the tools, build apps, do outreach, and more. A small fraction is used to burn OCEAN. This fee is collected when downloading or using an asset in a compute job.",
-        "marketplaceFee": "Goes to the marketplace owner that is hosting and providing the marketplace and is collected when downloading or using an asset in a compute job. In Ocean Market, it is treated as network revenue that goes to the Ocean community."
+        "communityFee": "对于后续每笔交易，所有者都将收到一定比例的版权费",
+        "marketplaceFee": "平台服务手续费"
       }
     },
     "free": {
-      "title": "Free",
-      "info": "Set your dataset as free. The datatoken for this dataset will be given for free via creating a faucet.",
+      "title": "FREE",
+      "info": "免费提供您数据资产的使用许可证",
       "fields": [
         {
           "name": "freeAgreement",
           "type": "checkbox",
-          "options": [
-            "I want this asset to be free. I understand network fees are still to be paid"
-          ]
+          "options": ["我同意免费提供该数据资产并支付相应的网络费用"]
         }
       ]
     }

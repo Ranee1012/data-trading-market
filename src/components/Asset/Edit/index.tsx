@@ -21,8 +21,8 @@ export default function Edit({ uri }: { uri: string }): ReactElement {
     const pageTitle = isInPurgatory
       ? ''
       : !isOwner
-      ? 'Edit action not available'
-      : `Edit ${title}`
+      ? '不支持编辑'
+      : `编辑 ${title}`
 
     setPageTitle(pageTitle)
     setIsCompute(asset?.services[0]?.type === 'compute')
@@ -30,13 +30,13 @@ export default function Edit({ uri }: { uri: string }): ReactElement {
 
   const tabs = [
     {
-      title: 'Edit Metadata',
+      title: '编辑数据资料',
       content: <EditMetadata asset={asset} />
     },
     ...[
       isCompute && asset?.metadata.type !== 'algorithm'
         ? {
-            title: 'Edit Compute Settings',
+            title: '编辑计算设定',
             content: <EditComputeDataset asset={asset} />
           }
         : undefined
@@ -48,11 +48,7 @@ export default function Edit({ uri }: { uri: string }): ReactElement {
       {!asset?.accessDetails ? (
         <Loader />
       ) : !isOwner ? (
-        <Alert
-          title="Edit action available only to asset owner"
-          text={error}
-          state="error"
-        />
+        <Alert title="仅资产所有者可编辑" text={error} state="error" />
       ) : (
         <Container className={styles.container}>
           <Tabs items={tabs} defaultIndex={0} className={styles.edit} />

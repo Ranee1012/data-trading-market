@@ -150,7 +150,7 @@ describe('@shared/FormInput/InputElement/FilesInput', () => {
       mockHelpers
     ])
     render(<FilesInput {...props} field={mockFieldIpfs} />)
-    expect(screen.getByText('✓ File confirmed')).toBeInTheDocument()
+    expect(screen.getByText('✓ 文件已确认')).toBeInTheDocument()
   })
 
   it('renders fileinfo when arweave is valid', () => {
@@ -171,7 +171,7 @@ describe('@shared/FormInput/InputElement/FilesInput', () => {
       mockHelpers
     ])
     render(<FilesInput {...props} field={mockFieldArwave} />)
-    expect(screen.getByText('✓ File confirmed')).toBeInTheDocument()
+    expect(screen.getByText('✓ 文件已确认')).toBeInTheDocument()
   })
 
   it('renders fileinfo placeholder when hideUrl is passed', () => {

@@ -1,45 +1,59 @@
 {
   "form": {
-    "success": "🎉 Successfully updated. 🎉\n\nUpdates might not show up right away on your asset. In this case, wait some seconds and reload your asset details page in your browser.",
-    "error": "Updating DDO failed.",
+    "success": "🎉 成功更新  🎉\n\n更新可能不会立即显示，请稍等片刻",
+    "error": "数据文档更新失败",
     "data": [
       {
         "name": "name",
-        "label": "New Title",
+        "label": "更新标题",
         "placeholder": "e.g. Shapes of Desert Plants",
-        "help": "Enter a concise title.",
         "required": true
       },
       {
         "name": "description",
-        "label": "New Description",
-        "help": "Add a thorough description with as much detail as possible. You can use [Markdown](https://daringfireball.net/projects/markdown/basics).",
+        "label": "更新描述",
         "type": "textarea",
         "rows": 10,
         "required": true
       },
       {
         "name": "price",
-        "label": "New Price",
+        "label": "更新价格",
         "type": "number",
         "min": "1",
         "placeholder": "0",
-        "help": "Enter a new price.",
         "required": true
       },
       {
         "name": "files",
-        "label": "File",
+        "label": "更新文件",
         "prominentHelp": false,
         "type": "tabs",
         "fields": [
+          {
+            "value": "url",
+            "title": "URL",
+            "label": "文件",
+            "placeholder": "e.g. https://file.com/file.json",
+            "prominentHelp": true,
+            "type": "files",
+            "required": true,
+            "innerFields": [
+              {
+                "value": "headers",
+                "title": "Headers",
+                "label": "Headers",
+                "placeholder_value": "Authorization",
+                "type": "headers",
+                "required": true
+              }
+            ]
+          },
           {
             "value": "ipfs",
             "title": "IPFS",
             "label": "CID",
             "placeholder": "e.g. bafkreidgvpkjawlxz6sffxzwgooowe5yt7i6wsyg236mfoks77nywkptdq",
-            "help": "This CID will be stored encrypted after publishing.",
-            "computeHelp": "For a compute dataset, your file should match the file type required by the algorithm, and should not exceed 1 GB in file size. ",
             "prominentHelp": true,
             "type": "files",
             "required": true
@@ -47,75 +61,18 @@
           {
             "value": "arweave",
             "title": "Arweave",
-            "label": "Transaction ID",
+            "label": "交易ID",
             "placeholder": "e.g. DBRCL94j3QqdPaUtt4VWRen8rZfJZBb7Ey40iMpXfhtd",
-            "help": "This Transaction ID will be stored encrypted after publishing.",
-            "computeHelp": "For a compute dataset, your file should match the file type required by the algorithm, and should not exceed 1 GB in file size. ",
             "prominentHelp": true,
             "type": "files",
             "required": true
           },
-          {
-            "value": "url",
-            "title": "URL",
-            "label": "File",
-            "placeholder": "e.g. https://file.com/file.json",
-            "help": "This URL will be stored encrypted after publishing. **Please make sure that the endpoint is accessible over the internet and is not protected by a firewall or by credentials.**",
-            "computeHelp": "For a compute dataset, your file should match the file type required by the algorithm, and should not exceed 1 GB in file size. ",
-            "prominentHelp": true,
-            "type": "files",
-            "required": true,
-            "innerFields": [
-              {
-                "value": "headers",
-                "title": "Headers",
-                "label": "Headers",
-                "placeholder_value": "Authorization",
-                "help": "This HEADERS will be stored encrypted after publishing.",
-                "type": "headers",
-                "required": true
-              }
-            ]
-          },
-          {
-            "value": "graphql",
-            "title": "Graphql",
-            "label": "URL",
-            "placeholder": "e.g. http://172.15.0.15:8000/subgraphs/name/oceanprotocol/ocean-subgraph",
-            "help": "This URL will be stored encrypted after publishing.",
-            "computeHelp": "For a compute dataset, your file should match the file type required by the algorithm, and should not exceed 1 GB in file size. ",
-            "prominentHelp": true,
-            "type": "files",
-            "required": true,
-            "headers": true,
-            "innerFields": [
-              {
-                "value": "headers",
-                "title": "Headers",
-                "label": "Headers",
-                "placeholder_value": "Authorization",
-                "help": "This HEADERS will be stored encrypted after publishing.",
-                "type": "headers",
-                "required": true
-              },
-              {
-                "value": "query",
-                "title": "Query",
-                "label": "Query",
-                "placeholder": "query{\n    nfts(\n       orderBy: createdTimestamp,\n       orderDirection:desc\n   ){\n       id\n       symbol\n       createdTimestamp\n   }\n}",
-                "help": "This QUERY will be stored encrypted after publishing.",
-                "type": "codeeditor",
-                "required": true
-              }
-            ]
-          },
+
           {
             "value": "smartcontract",
-            "title": "Smart Contract",
-            "label": "Address",
+            "title": "智能合约",
+            "label": "地址",
             "placeholder": "e.g. 0x8149276f275EEFAc110D74AFE8AFECEaeC7d1593",
-            "help": "This ADDRESS will be stored encrypted after publishing. **Please make sure that the endpoint is accessible over the internet and is not protected by a firewall or by credentials.**",
-            "computeHelp": "For a compute dataset, your file should match the file type required by the algorithm, and should not exceed 1 GB in file size. ",
             "prominentHelp": true,
             "type": "files",
             "required": true,
@@ -125,7 +82,6 @@
                 "title": "ABI",
                 "label": "ABI",
                 "placeholder": "{\n  'inputs': [],\n  'name': 'swapOceanFee',\n  'outputs': [{'internalType': 'uint256', 'name': '', 'type': 'uint256'}],\n  'stateMutability': 'view',\n  'type': 'function'\n}",
-                "help": "This ABI will be stored encrypted after publishing.",
                 "type": "codeeditor",
                 "required": true
               }
@@ -137,7 +93,7 @@
       },
       {
         "name": "links",
-        "label": "Sample file",
+        "label": "更新样本文件",
         "prominentHelp": false,
         "type": "tabs",
         "fields": [
@@ -158,45 +114,36 @@
 
       {
         "name": "timeout",
-        "label": "Timeout",
-        "help": "Define how long buyers should be able to download the dataset again after the initial purchase.",
+        "label": "更新有效期",
         "type": "select",
-        "options": ["Forever", "1 day", "1 week", "1 month", "1 year"],
+        "options": ["一天", "一周", "一月", "一年", "永久"],
         "sortOptions": false,
         "required": true
       },
       {
         "name": "author",
-        "label": "New Author",
-        "placeholder": "e.g. Mrs McJellyfish",
-        "help": "Give proper attribution for your dataset.",
+        "label": "更新生产者",
+        "placeholder": "e.g. 气象局",
         "required": false
       },
       {
         "name": "tags",
-        "label": "New Tags",
+        "label": "更新标签",
         "type": "tags",
-        "placeholder": "e.g. logistics",
+        "placeholder": "e.g. 气象",
         "required": false
       },
       {
         "name": "paymentCollector",
-        "label": "Payment Collector Address",
+        "label": "更新收款方地址",
         "placeholder": "e.g. 0X123ABC...",
-        "help": "This address will receive the revenue from all sales. More info available in our [docs](https://docs.oceanprotocol.com/core-concepts/datanft-and-datatoken#revenue).",
         "required": false
       },
       {
         "name": "assetState",
-        "label": "Asset Status",
-        "help": "This asset will no longer be visible to other users and it won't be possible to purchase it.  More info available in our [docs](https://docs.oceanprotocol.com/core-concepts/did-ddo#state).",
+        "label": "资产状态",
         "type": "select",
-        "options": [
-          "Active",
-          "Revoked by publisher",
-          "Ordering is temporary disabled",
-          "Asset unlisted"
-        ],
+        "options": ["有效", "撤回", "暂停", "下架"],
         "sortOptions": false,
         "required": false
       }

@@ -11,6 +11,7 @@ import {
 import { SvgWaves } from './SvgWaves'
 import Web3 from 'web3'
 import { TransactionReceipt } from 'web3-core'
+import logo from 'src/@images/logo.svg'
 
 // https://docs.opensea.io/docs/metadata-standards
 export interface NftMetadata {
@@ -50,12 +51,11 @@ export function generateNftMetadata(): NftMetadata {
   const imageData = `data:image/svg+xml,${encodeSvg(svg.outerHTML)}`
 
   const newNft: NftMetadata = {
-    name: 'Ocean Data NFT',
-    symbol: 'OCEAN-NFT',
-    description: `This NFT represents an asset in the Ocean Protocol v4 ecosystem.`,
-    external_url: 'https://market.oceanprotocol.com',
+    name: '数据NFT',
+    symbol: 'Data-NFT',
+    description: `该NFT代表您的数据资产所有权证明`,
     background_color: '141414', // dark background
-    image_data: imageData
+    image_data: logo
   }
 
   return newNft

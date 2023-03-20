@@ -12,11 +12,11 @@ import { useRouter } from 'next/router'
 const cx = classNames.bind(styles)
 
 const sortItems = [
-  { display: 'Relevance', value: SortTermOptions.Relevance },
-  { display: 'Published', value: SortTermOptions.Created },
-  { display: 'Sales', value: SortTermOptions.Orders },
-  { display: 'Total allocation', value: SortTermOptions.Allocated },
-  { display: 'Price', value: SortTermOptions.Price }
+  { display: '相关性', value: SortTermOptions.Relevance },
+  { display: '发布量', value: SortTermOptions.Created },
+  { display: '销售量', value: SortTermOptions.Orders },
+  { display: '分配量', value: SortTermOptions.Allocated },
+  { display: '价格', value: SortTermOptions.Price }
 ]
 
 export default function Sort({

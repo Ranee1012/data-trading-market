@@ -1,14 +1,14 @@
 {
   "form": {
-    "title": "Set allowed algorithms",
-    "description": "Only the algorithms selected here will be allowed to run on your dataset. Uncheck all to remove any access to your dataset.",
-    "success": "🎉 Successfully updated. 🎉\n\nUpdates might not show up right away on your asset. In this case, wait some seconds and reload your asset details page in your browser.",
-    "error": "Updating DDO failed.",
+    "title": "设置允许的模型",
+    "description": "只有被选中的模型才有权限在您的数据集上运行",
+    "success": "🎉 成功更新  🎉\n\n更新可能不会立即显示，请稍等片刻",
+    "error": "数据文档更新失败",
     "data": [
       {
         "name": "publisherTrustedAlgorithms",
-        "label": "Selected Algorithms",
-        "help": "Choose one or multiple algorithms you trust to allow them to run on this dataset.",
+        "label": "选择模型",
+        "help": "选择可以运行在您数据集上的模型",
         "type": "assetSelectionMultiple",
         "multiple": true,
         "options": [],
@@ -16,10 +16,10 @@
       },
       {
         "name": "allowAllPublishedAlgorithms",
-        "label": "All Algorithms",
-        "help": "Allow any published algorithm to run on this dataset.",
+        "label": "所有模型",
+        "help": "允许所有已发布模型在您数据集上运行",
         "type": "checkbox",
-        "options": ["Allow any published algorithm"]
+        "options": ["允许任意模型"]
       }
     ]
   }

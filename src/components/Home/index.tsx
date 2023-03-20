@@ -1,6 +1,5 @@
 import React, { ReactElement, useEffect, useState } from 'react'
 import Button from '@shared/atoms/Button'
-import Bookmarks from './Bookmarks'
 import { generateBaseQuery } from '@utils/aquarius'
 import { useUserPreferences } from '@context/UserPreferences'
 import { SortTermOptions } from '../../@types/aquarius/SearchQuery'
@@ -23,7 +22,7 @@ export default function HomePage(): ReactElement {
     const baseParams = {
       chainIds,
       esPaginationOptions: {
-        size: 6
+        size: 2
       },
       sortOptions: {
         sortBy: SortTermOptions.Created
@@ -34,7 +33,7 @@ export default function HomePage(): ReactElement {
     const baseParamsSales = {
       chainIds,
       esPaginationOptions: {
-        size: 6
+        size: 2
       },
       sortOptions: {
         sortBy: SortTermOptions.Orders
@@ -44,7 +43,7 @@ export default function HomePage(): ReactElement {
     const baseParamsAllocation = {
       chainIds,
       esPaginationOptions: {
-        size: 6
+        size: 2
       },
       sortOptions: {
         sortBy: SortTermOptions.Allocated
@@ -52,32 +51,16 @@ export default function HomePage(): ReactElement {
     } as BaseQueryParams
     setQueryMostAllocation(generateBaseQuery(baseParamsAllocation))
   }, [chainIds])
-
+  console.log(2, queryLatest)
   return (
     <>
-      <section className={styles.section}>
-        <h3>您的收藏</h3>
-        <Bookmarks />
-      </section>
-
-      <Allocations />
-
+      <TopTags title="产品类型" />
       <SectionQueryResult
-        title="Highest veOCEAN Allocations"
-        query={queryMostAllocation}
-      />
-
-      <SectionQueryResult title="Most Sales" query={queryMostSales} />
-      {/* <MostViews /> */}
-      <TopSales title="Publishers With Most Sales" />
-      <TopTags title="Top Tags By Sales" />
-
-      <SectionQueryResult
-        title="Recently Published"
+        title="最新发布"
         query={queryLatest}
         action={
           <Button style="text" to="/search?sort=nft.created&sortOrder=desc">
-            All datasets and algorithms →
+            浏览更多数据和算法产品 →
           </Button>
         }
       />

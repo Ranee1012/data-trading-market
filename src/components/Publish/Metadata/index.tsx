@@ -54,11 +54,11 @@ export default function MetadataFields(): ReactElement {
   useEffect(() => {
     setFieldValue(
       'services[0].access',
-      values.metadata.type === 'algorithm' ? 'compute' : 'access'
+      values.metadata.type === '模型' ? 'compute' : 'access'
     )
     setFieldValue(
       'services[0].algorithmPrivacy',
-      values.metadata.type === 'algorithm'
+      values.metadata.type === '模型'
     )
   }, [values.metadata.type])
 
@@ -106,7 +106,7 @@ export default function MetadataFields(): ReactElement {
         name="metadata.tags"
       />
 
-      {values.metadata.type === 'algorithm' && (
+      {values.metadata.type === '模型' && (
         <>
           <Field
             {...getFieldContent('dockerImage', content.metadata.fields)}
@@ -147,20 +147,6 @@ export default function MetadataFields(): ReactElement {
           )}
         </>
       )}
-
-      <Field
-        {...getFieldContent('termsAndConditions', content.metadata.fields)}
-        component={Input}
-        name="metadata.termsAndConditions"
-      />
-      <a
-        className={styles.termsLink}
-        href="/terms"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        View Terms and Conditions
-      </a>
     </>
   )
 }

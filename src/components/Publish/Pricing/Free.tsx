@@ -24,7 +24,7 @@ export default function Free({ content }: { content: any }): ReactElement {
   return (
     <>
       <FormHelp>{content.info}</FormHelp>
-      <h4 className={styles.title}>Price</h4>
+      <h4 className={styles.title}>定价</h4>
       <Price content={content} />
     </>
   )

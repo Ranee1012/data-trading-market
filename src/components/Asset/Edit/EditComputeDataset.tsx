@@ -131,12 +131,12 @@ export default function EditComputeDataset({
       {({ values, isSubmitting }) =>
         isSubmitting || hasFeedback ? (
           <EditFeedback
-            loading="Updating dataset with new compute settings..."
+            loading="正在更新..."
             error={error}
             success={success}
             setError={setError}
             successAction={{
-              name: 'Back to Asset',
+              name: '返回',
               onClick: async () => {
                 await fetchAsset()
               },

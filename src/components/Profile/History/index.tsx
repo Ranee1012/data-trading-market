@@ -27,16 +27,16 @@ function getTabs(
 ): HistoryTab[] {
   const defaultTabs: HistoryTab[] = [
     {
-      title: 'Published',
+      title: '我发布的',
       content: <PublishedList accountId={accountId} />
     },
     {
-      title: 'Downloads',
+      title: '我购买的',
       content: <Downloads accountId={accountId} />
     }
   ]
   const computeTab: HistoryTab = {
-    title: 'Compute Jobs',
+    title: '计算任务',
     content: (
       <ComputeJobs
         jobs={jobs}

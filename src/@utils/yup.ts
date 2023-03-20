@@ -21,7 +21,7 @@ export function testLinks(isEdit?: boolean) {
         // if we're in publish, the field must be valid
         if (!validField) {
           validField = false
-          errorMessage = 'Must be a valid url.'
+          errorMessage = 'URL无效'
         }
         // we allow submit on empty sample field
         if (
@@ -34,25 +34,20 @@ export function testLinks(isEdit?: boolean) {
         // if the url has google drive, we need to block the user from submit
         if (isGoogleUrl(value?.toString())) {
           validField = false
-          errorMessage =
-            'Google Drive is not a supported hosting service. Please use an alternative.'
+          errorMessage = '暂不支持 Google Drive'
         }
         break
       case 'ipfs':
         validField = isCID(value?.toString())
-        errorMessage = !value?.toString() ? 'CID required.' : 'CID not valid.'
+        errorMessage = !value?.toString() ? 'CID必填.' : 'CID无效'
         break
       case 'arweave':
         validField = value && !value?.toString().includes('http')
-        errorMessage = !value?.toString()
-          ? 'Transaction ID required.'
-          : 'Transaction ID not valid.'
+        errorMessage = !value?.toString() ? '交易ID必填' : '交易ID无效'
         break
       case 'smartcontract':
         validField = web3.utils.isAddress(value?.toString())
-        errorMessage = !value?.toString()
-          ? 'Address required.'
-          : 'Address not valid.'
+        errorMessage = !value?.toString() ? '地址必填' : '地址无效'
         break
     }
 

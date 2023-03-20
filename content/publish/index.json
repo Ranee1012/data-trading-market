@@ -1,6 +1,6 @@
 {
-  "title": "Publish",
-  "description": "Highlight the important features of your dataset or algorithm to make it more discoverable and catch the interest of data consumers.",
-  "warning": "Publishing into a test network first is strongly recommended. Please familiarize yourself with [the market](https://oceanprotocol.com/technology/marketplaces), [the risks](https://blog.oceanprotocol.com/on-staking-on-data-in-ocean-market-3d8e09eb0a13), and the [Terms of Use](/terms).",
-  "tooltipAvailableNetworks": "Assets are published to the network your wallet is connected to. These networks are currently supported:"
+  "title": "发布",
+  "description": "填写您数据集的相关资料以便更好的发掘潜在顾客",
+  "warning": "建议您在发布主网前，先发布在测试网上",
+  "tooltipAvailableNetworks": "数据资产将会发布在您钱包所连接的网络"
 }

@@ -1,51 +1,51 @@
 {
   "metadata": {
-    "title": "Metadata",
+    "title": "数据注册",
     "fields": [
       {
         "name": "nft",
-        "label": "Data NFT",
+        "label": "数据NFT（所有权证明）",
         "type": "nft",
-        "help": "All metadata is stored on-chain in a newly deployed ERC-721 contract representing this asset, created with this name, symbol, description and image.",
+        "help": "所有的相关元数据都存储在一个链上新铸造的非同质化通证（NFT）中，记录您的数据所有权，该记录不可篡改",
         "required": true
       },
       {
         "name": "type",
-        "label": "Asset Type",
+        "label": "产品类型",
         "type": "boxSelection",
-        "options": ["Dataset", "Algorithm"],
+        "options": ["数据集", "模型"],
         "required": true
       },
       {
         "name": "name",
-        "label": "Title",
-        "placeholder": "e.g. Shapes of Desert Plants",
+        "label": "名称",
+        "placeholder": "例如：xx省xx区每小时降水数据集",
         "required": true
       },
       {
         "name": "description",
-        "label": "Description",
+        "label": "描述",
         "help": "Add a thorough description with as much detail as possible. You can use [Markdown](https://daringfireball.net/projects/markdown/basics). You can change the description at any time. If you provide personal data, please note that it will remain in the transaction history. For more information on how personal data is handled within the metadata, please refer to our [privacy policy](/privacy/en).",
         "type": "textarea",
         "required": true
       },
       {
         "name": "author",
-        "label": "Author",
-        "placeholder": "e.g. Jelly McJellyfish",
+        "label": "生产方",
+        "placeholder": "例如：贵州省气象局",
         "help": "Give proper attribution for your dataset. You are welcome to use a pseudonym, and you can change your author name at any time. Please note that it will remain in the transaction history. For more information on how personal data is handled within the metadata, please refer to our [privacy policy](/privacy/en).",
         "required": true
       },
       {
         "name": "tags",
-        "label": "Tags",
+        "label": "标签",
         "type": "tags",
-        "placeholder": "e.g. logistics"
+        "placeholder": "例如：气象"
       },
       {
         "name": "dockerImage",
-        "label": "Docker Image",
-        "help": "Please select an image to run your algorithm.",
+        "label": "Docker镜像",
+        "help": "请选择一种镜像类型以运行您的模型",
         "type": "boxSelection",
         "options": [
           "populated from algorithmContainerPresets in Publish/_constants"
@@ -54,88 +54,56 @@
       },
       {
         "name": "dockerImageCustom",
-        "label": "Custom Docker Image",
+        "label": "自定义Docker镜像",
         "placeholder": "e.g. oceanprotocol/algo_dockers:node-vibrant or quay.io/startx/mariadb",
-        "help": "Provide the name and the tag of a public Docker hub image or the custom image if you have it hosted in a 3rd party repository",
         "type": "container",
         "required": true
       },
       {
         "name": "dockerImageChecksum",
-        "label": "Docker Image Checksum",
+        "label": "Docker镜像校验和",
         "placeholder": "e.g. sha256:xiXqb7Vet0FbN9q0GFMgUdi5C22wjJT0i2G6lYKC2jl6QxkKzVz7KaPDgqfTMjNF",
-        "help": "Provide the checksum(DIGEST) of your docker image.",
         "required": true
       },
       {
         "name": "dockerImageCustomEntrypoint",
-        "label": "Docker Image Entrypoint",
+        "label": "Docker镜像入口点",
         "placeholder": "e.g. python $ALGO",
-        "help": "Provide the entrypoint for your algorithm.",
-        "required": true
-      },
-      {
-        "name": "termsAndConditions",
-        "label": "Terms & Conditions",
-        "type": "checkbox",
-        "options": ["I agree to the Terms and Conditions"],
         "required": true
       }
     ]
   },
   "services": {
-    "title": "Access",
+    "title": "交付设置",
     "fields": [
       {
         "name": "dataTokenOptions",
-        "label": "Datatoken",
+        "label": "数据许可证FT（使用权通证）",
         "type": "datatoken",
-        "help": "The datatoken used for accessing this asset will be created with this name & symbol.",
+        "help": "每一个独特数据资产NFT可对应多个数据许可证，持有许可证的用户可以合法访问该数据",
         "required": true
       },
       {
         "name": "providerUrl",
-        "label": "Provider URL",
+        "label": "云服务提供商",
         "type": "providerUrl",
-        "help": "Enter the URL for your custom [provider](https://github.com/oceanprotocol/provider/) or leave as is to use the default one. If you change your provider URL after adding your file, please add & validate your file again.",
+        "help": "您可以根据需求更改为任意提供商的URL，该提供商将为您提供模型计算资源、数据加密解密、数据权限验证等服务",
         "placeholder": "e.g. https://provider.oceanprotocol.com/",
         "required": true
       },
       {
         "name": "files",
-        "label": "File",
+        "label": "文件",
         "prominentHelp": false,
         "type": "tabs",
         "fields": [
           {
-            "value": "ipfs",
-            "title": "IPFS",
-            "label": "CID",
-            "placeholder": "e.g. bafkreidgvpkjawlxz6sffxzwgooowe5yt7i6wsyg236mfoks77nywkptdq",
-            "help": "This CID will be stored encrypted after publishing.",
-            "computeHelp": "For a compute dataset, your file should match the file type required by the algorithm, and should not exceed 1 GB in file size. ",
-            "prominentHelp": true,
-            "type": "files",
-            "required": true
-          },
-          {
-            "value": "arweave",
-            "title": "Arweave",
-            "label": "Transaction ID",
-            "placeholder": "e.g. DBRCL94j3QqdPaUtt4VWRen8rZfJZBb7Ey40iMpXfhtd",
-            "help": "This Transaction ID will be stored encrypted after publishing.",
-            "computeHelp": "For a compute dataset, your file should match the file type required by the algorithm, and should not exceed 1 GB in file size. ",
-            "prominentHelp": true,
-            "type": "files",
-            "required": true
-          },
-          {
             "value": "url",
             "title": "URL",
-            "label": "File",
+            "label": "文件",
             "placeholder": "e.g. https://file.com/file.json",
-            "help": "This URL will be stored encrypted after publishing. **Please make sure that the endpoint is accessible over the internet and is not protected by a firewall or by credentials.**",
-            "computeHelp": "For a compute dataset, your file should match the file type required by the algorithm, and should not exceed 1 GB in file size. ",
+            "help": "发布后URL将会被加密储存",
+            "computeHelp": "对于模型计算任务，文件格式需要满足模型要求，且大小不超过1GB",
             "prominentHelp": true,
             "type": "files",
             "required": true,
@@ -143,53 +111,42 @@
             "innerFields": [
               {
                 "value": "headers",
-                "title": "Headers",
+                "title": "请求头",
                 "label": "Headers",
-                "placeholder_value": "Authorization",
-                "help": "This HEADERS will be stored encrypted after publishing.",
+                "placeholder_value": "授权",
+                "help": "发布后请求头HEADERS将被加密存储",
                 "type": "headers",
                 "required": false
               }
             ]
           },
           {
-            "value": "graphql",
-            "title": "Graphql",
-            "label": "URL",
-            "placeholder": "e.g. http://172.15.0.15:8000/subgraphs/name/oceanprotocol/ocean-subgraph",
-            "help": "This URL will be stored encrypted after publishing.",
-            "computeHelp": "For a compute dataset, your file should match the file type required by the algorithm, and should not exceed 1 GB in file size. ",
+            "value": "ipfs",
+            "title": "IPFS",
+            "label": "CID",
+            "placeholder": "e.g. bafkreidgvpkjawlxz6sffxzwgooowe5yt7i6wsyg236mfoks77nywkptdq",
+            "help": "发布后内容识别符CID将被加密存储",
+            "computeHelp": "对于模型计算任务，文件格式需要满足模型要求，且大小不超过1GB",
             "prominentHelp": true,
             "type": "files",
-            "required": true,
-            "innerFields": [
-              {
-                "value": "headers",
-                "title": "Headers",
-                "label": "Headers",
-                "placeholder_value": "Authorization",
-                "help": "This HEADERS will be stored encrypted after publishing.",
-                "type": "headers",
-                "required": false
-              },
-              {
-                "value": "query",
-                "title": "Query",
-                "label": "Query",
-                "placeholder": "query{\n    nfts(\n       orderBy: createdTimestamp,\n       orderDirection:desc\n   ){\n       id\n       symbol\n       createdTimestamp\n   }\n}",
-                "help": "This QUERY will be stored encrypted after publishing.",
-                "type": "codeeditor",
-                "required": true
-              }
-            ]
+            "required": true
+          },
+          {
+            "value": "arweave",
+            "title": "Arweave",
+            "label": "交易ID",
+            "placeholder": "e.g. DBRCL94j3QqdPaUtt4VWRen8rZfJZBb7Ey40iMpXfhtd",
+            "help": "发布后交易ID将被加密存储",
+            "computeHelp": "对于模型计算任务，文件格式需要满足模型要求，且大小不超过1GB",
+            "prominentHelp": true,
+            "type": "files",
+            "required": true
           },
           {
             "value": "smartcontract",
-            "title": "Smartcontract",
-            "label": "Address",
+            "title": "智能合约",
+            "label": "地址",
             "placeholder": "e.g. 0x8149276f275EEFAc110D74AFE8AFECEaeC7d1593",
-            "help": "This ADDRESS will be stored encrypted after publishing.",
-            "computeHelp": "For a compute dataset, your file should match the file type required by the algorithm, and should not exceed 1 GB in file size. ",
             "prominentHelp": true,
             "type": "files",
             "required": true,
@@ -199,7 +156,6 @@
                 "title": "ABI",
                 "label": "ABI",
                 "placeholder": "{\n  'inputs': [],\n  'name': 'swapOceanFee',\n  'outputs': [{'internalType': 'uint256', 'name': '', 'type': 'uint256'}],\n  'stateMutability': 'view',\n  'type': 'function'\n}",
-                "help": "This ABI will be stored encrypted after publishing.",
                 "type": "codeeditor",
                 "required": true
               }
@@ -211,17 +167,16 @@
       },
       {
         "name": "links",
-        "label": "Sample file",
+        "label": "样本文件",
+        "help": "公开信息，供数据购买方预览",
         "prominentHelp": false,
         "type": "tabs",
         "fields": [
           {
             "value": "url",
             "title": "URL",
-            "label": "File",
+            "label": "文件",
             "placeholder": "e.g. https://file.com/file.json",
-            "help": "This URL will be stored encrypted after publishing. **Please make sure that the endpoint is accessible over the internet and is not protected by a firewall or by credentials.**",
-            "computeHelp": "For a compute dataset, your file should match the file type required by the algorithm, and should not exceed 1 GB in file size. ",
             "prominentHelp": true,
             "type": "files",
             "required": false
@@ -231,16 +186,14 @@
       },
       {
         "name": "algorithmPrivacy",
-        "label": "Algorithm Privacy",
+        "label": "模型隐私性",
         "type": "checkbox",
-        "options": ["Keep my algorithm private"],
-        "help": "By default, your algorithm can be downloaded for free or a fixed price, in addition to running in compute jobs. Enabling this option will prevent downloading, so your algorithm can only be run as part of a compute job on a dataset.",
+        "options": ["模型不可公开下载"],
         "required": false
       },
       {
         "name": "access",
-        "label": "Access Type",
-        "help": "Choose how you want your files to be accessible for the specified price.",
+        "label": "交付类型",
         "type": "boxSelection",
         "options": ["Access", "Compute"],
         "required": true,
@@ -249,17 +202,16 @@
       },
       {
         "name": "timeout",
-        "label": "Timeout",
-        "help": "Define how long buyers should be able to download the dataset again after the initial purchase.",
+        "label": "有效期",
         "type": "select",
-        "options": ["Forever", "1 day", "1 week", "1 month", "1 year"],
+        "options": ["一天", "一周", "一月", "一年", "永久"],
         "sortOptions": false,
         "required": true
       }
     ]
   },
   "pricing": {
-    "title": "Pricing",
+    "title": "价格设置",
     "fields": [
       {
         "name": "dummy content, actual content is defined under 'create' key in ../price.json"
@@ -267,9 +219,9 @@
     ]
   },
   "preview": {
-    "title": "Preview"
+    "title": "数据预览"
   },
   "submission": {
-    "title": "Submit"
+    "title": "数据发布"
   }
 }
